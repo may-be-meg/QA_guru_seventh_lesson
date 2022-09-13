@@ -2,7 +2,7 @@ package guru.qa.tests;
 
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
-public class PopupTest {
+public class PopupDelete {
 
     static void removePopup() {
         executeJavaScript("$('.popup-main-wrapper').remove()");

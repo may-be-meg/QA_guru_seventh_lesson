@@ -16,16 +16,16 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class WebFormTest extends TestBase {
 
-    PopupTest popupTest = new PopupTest();
+    PopupDelete popupTest = new PopupDelete();
 
     @ValueSource(strings = {"Художественная литература", "Образование"})
     @ParameterizedTest(name = "Панель навигации содержит {0}")
     void commonSearchTest(String testData) {
         open("https://www.chitai-gorod.ru");
-        PopupTest.removePopup();
+        PopupDelete.removePopup();
         $(".catalog__nav").$(byText("Книги")).hover();
         $(byText(testData)).click();
-        PopupTest.removePopup();
+        PopupDelete.removePopup();
         $(".navigation").shouldHave(text(testData));
     }
 
@@ -36,10 +36,10 @@ public class WebFormTest extends TestBase {
     @ParameterizedTest(name = "Панель навигации для \"{0}\" содержит \"{1}\"")
     void searchGames(String testData, String expectedResult) {
         open("https://www.chitai-gorod.ru");
-        PopupTest.removePopup();
+        PopupDelete.removePopup();
         $(".catalog__nav").$(byText("Игры и игрушки")).hover();
         $(byText(testData)).click();
-        PopupTest.removePopup();
+        PopupDelete.removePopup();
         $(".navigation").shouldHave(text(expectedResult));
     }
 
@@ -57,10 +57,10 @@ public class WebFormTest extends TestBase {
     @ParameterizedTest(name = "Для пункта меню {0} в панели навигации дочерними элементами являются пункты {1}")
     void selenideSiteMenuTest(Stationery stationery, List<String> expectedButtons) {
         open("https://www.chitai-gorod.ru");
-        PopupTest.removePopup();
+        PopupDelete.removePopup();
         $(".catalog__nav").$(byText("Канцтовары")).hover();
         $(byText(stationery.getTitle())).click();
-        PopupTest.removePopup();
+        PopupDelete.removePopup();
         $$(".navigation__item .navigation__item").shouldHave(CollectionCondition.texts(expectedButtons));
     }
 }
