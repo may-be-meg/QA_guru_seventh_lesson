@@ -7,7 +7,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.junit.jupiter.params.ParameterizedTest;
 
-import java.awt.print.Paper;
 import java.util.List;
 import java.util.stream.Stream;
 
